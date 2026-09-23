@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ตะกร้าดี | ร้านค้าออนไลน์</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@500;700&family=Noto+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">ตะ</span>
+      <span>ตะกร้าดี</span>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="ค้นหาสินค้า เช่น เสื้อ, กระเป๋า...">
+    </div>
+    <button class="cart-btn" id="openCartBtn" aria-haspopup="true">
+      ตะกร้า <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>เลือกของที่ใช่ ในราคาที่ชอบ</h1>
+      <p>สินค้าคัดสรร ส่งไว จ่ายง่าย เลือกได้ทั้งเงินสด โอนเงิน หรือบัตรเครดิต</p>
+    </section>
+
+    <section class="product-section">
+      <div class="section-head">
+        <h2>สินค้าทั้งหมด</h2>
+        <span id="resultCount" class="result-count"></span>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+  </main>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="ตะกร้าสินค้า">
+    <div class="cart-header">
+      <h2>ตะกร้าสินค้า</h2>
+      <button class="icon-btn" id="closeCartBtn" aria-label="ปิดตะกร้า">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-msg" id="emptyCartMsg">ตะกร้าของคุณยังว่างอยู่</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row"><span>ยอดรวม</span><span id="cartTotal">0.00 บาท</span></div>
+      <button class="checkout-btn" id="checkoutBtn" disabled>ไปหน้าชำระเงิน</button>
+    </div>
+  </aside>
+
+  <div class="modal-overlay" id="checkoutOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>ชำระเงิน</h2>
+        <button class="icon-btn" id="closeCheckoutBtn" aria-label="ปิด">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="pay-total">ยอดที่ต้องชำระ: <strong id="payTotal">0.00 บาท</strong></p>
+        <p class="pay-label">เลือกวิธีชำระเงิน</p>
+        <div class="pay-methods">
+          <label class="pay-option"><input type="radio" name="payMethod" value="เงินสด" checked><span>เงินสด</span></label>
+          <label class="pay-option"><input type="radio" name="payMethod" value="โอนเงิน"><span>โอนเงิน</span></label>
+          <label class="pay-option"><input type="radio" name="payMethod" value="บัตรเครดิต"><span>บัตรเครดิต</span></label>
+        </div>
+        <button class="confirm-btn" id="confirmPayBtn">ยืนยันการชำระเงิน</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="successOverlay">
+    <div class="modal success-modal">
+      <div class="success-icon">✓</div>
+      <h2>ชำระเงินสำเร็จ</h2>
+      <p id="successDetail"></p>
+      <p class="ship-status">สถานะ: กำลังจัดส่งสินค้า</p>
+      <button class="confirm-btn" id="backToShopBtn">กลับไปเลือกซื้อสินค้าต่อ</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
